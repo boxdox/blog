@@ -1,0 +1,241 @@
+.post--header {
+  text-align: center;
+  line-height: 1.25;
+  margin-bottom: 1rem;
+}
+
+.post--subtitle {
+  --spacing: 0.25rem;
+  margin: 1rem 0;
+  & > * + * {
+    margin-left: var(--spacing);
+
+    &:before {
+      content: '\2022';
+      margin-right: var(--spacing);
+    }
+  }
+}
+
+.post--tags {
+  display: inline-flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  list-style: none;
+}
+
+.post--tag {
+  background-color: var(--accent);
+  color: var(--white);
+  font-size: 0.75rem;
+  padding: 0.25rem 0.5rem;
+  margin: 0px 0.35rem;
+  border-radius: 0.5rem;
+  text-decoration: none;
+  text-transform: lowercase;
+}
+
+.post--cover {
+  object-fit: cover;
+}
+
+.post--body {
+  margin-top: 1.5rem;
+
+  // set the font-size
+  font-size: 1.125rem;
+
+  // creating a flow rhythm
+  --flow-space: 1.5em;
+
+  & > * + * {
+    margin-top: var(--flow-space);
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    color: var(--accent);
+
+    &:hover .heading--anchor {
+      visibility: visible;
+    }
+    .heading--anchor {
+      color: var(--accent);
+      text-decoration: none;
+      visibility: hidden;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+
+    & + hr {
+      margin-top: 0;
+    }
+  }
+
+  a {
+    color: var(--accent);
+  }
+
+  a:not(.heading--anchor):not(.footnote-ref):not(.footnote-backref) {
+    color: var(--accent);
+    background: linear-gradient(var(--accent) 0%, var(--accent) 100%) 0px 100% / 4px 3px repeat-x;
+    color: var(--fg);
+    padding: 0px 3px;
+    text-decoration: none;
+    transition: all 200ms ease-out;
+
+    &:hover {
+      background-size: 4px 50px;
+      color: var(--white);
+    }
+  }
+
+  .highlight {
+    --padding: 1.5rem;
+    position: relative;
+    border-radius: 0.5rem;
+    margin: 1rem 0;
+    overflow: hidden;
+
+    pre {
+      overflow-y: auto;
+      margin: 0;
+
+      & > code {
+        display: block;
+        float: left;
+        min-width: 100%;
+        padding: calc(var(--padding) * 1.25) var(--padding) calc(var(--padding) * 0.75);
+        font-size: 0.875rem;
+        font-family: Consolas, 'Andale Mono WT', 'Andale Mono', 'Lucida Console',
+          'Lucida Sans Typewriter', 'DejaVu Sans Mono', 'Bitstream Vera Sans Mono',
+          'Liberation Mono', 'Nimbus Mono L', Monaco, 'Courier New', Courier, monospace;
+        font-feature-settings: normal;
+        text-align: left;
+        white-space: pre;
+        word-spacing: normal;
+        word-break: normal;
+        overflow-wrap: normal;
+        margin-bottom: 0;
+        tab-size: 2;
+        hyphens: none;
+
+        &[data-lang]:before {
+          content: attr(data-lang);
+          display: block;
+          text-transform: uppercase;
+          position: absolute;
+          left: var(--padding);
+          top: 0;
+          padding: 0.25rem 0.5rem;
+          font-size: 0.875rem;
+          border-bottom-left-radius: 0.5rem;
+          border-bottom-right-radius: 0.5rem;
+          background-color: var(--accent);
+          box-shadow: rgba(0, 0, 0, 0.3) 0px 0px 5px 0px;
+          line-height: 1;
+          user-select: none;
+        }
+      }
+    }
+  }
+
+  :not(pre) > code {
+    background-color: var(--inlineBG);
+    padding: 0.25rem;
+    margin: 0 0.125rem;
+  }
+
+  blockquote p {
+    position: relative;
+    padding-left: 2rem;
+    margin-bottom: 2rem;
+    font-size: 1.25rem;
+    color: var(--gray);
+    font-style: italic;
+
+    &:before {
+      position: absolute;
+      content: '';
+      mask: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'><path d='M7 6l1-2H6C3.8 4 2 6.8 2 9v7h7V9H5c0-3 2-3 2-3zm7 3c0-3 2-3 2-3l1-2h-2c-2.2 0-4 2.8-4 5v7h7V9z'/></svg>")
+        no-repeat 50% 50%;
+      mask-size: cover;
+      width: 2rem;
+      height: 2rem;
+      background-color: var(--gray);
+      opacity: 0.3;
+      top: -0.5rem;
+      left: 0;
+    }
+  }
+
+  figure {
+    img {
+      box-shadow: 0 0 2rem -0.5rem rgba(0, 0, 0, 0.3);
+      margin: 0 auto;
+    }
+
+    figcaption {
+      margin: 0.25rem 0px 0.75rem;
+      text-align: center;
+      font-size: 0.875rem;
+      color: var(--gray);
+    }
+  }
+
+  dl {
+    dt {
+      margin-top: 0.5rem;
+      font-weight: bold;
+      text-decoration: underline;
+      font-family: var(--font-heading);
+    }
+    dd {
+      margin-left: 1rem;
+      padding: 0 0 0.5rem 0;
+    }
+  }
+}
+
+#share-button {
+  display: flex;
+  align-items: center;
+  margin: 1rem auto 0;
+  width: fit-content;
+  padding: 0.5rem 1.5rem;
+  border: 1px dotted var(--accent);
+  transition: all 100ms ease-in-out;
+  cursor: pointer;
+
+  &:hover {
+    background-color: var(--accent);
+    color: var(--white);
+
+    & > svg {
+      color: var(--white);
+    }
+  }
+
+  &:focus {
+    outline-offset: 0.5rem;
+  }
+
+  svg {
+    --size: 1.5rem;
+    width: var(--size);
+    height: var(--size);
+    color: var(--accent);
+  }
+
+  span {
+    margin-left: 0.5rem;
+    font-family: var(--font-heading);
+  }
+}

@@ -1,0 +1,15 @@
+{{ define "main" }}
+<h1>List of all {{ .Title | lower }}</h1>
+
+<ul class="tags--list">
+  {{ range .Data.Terms.ByCount }}
+  <li>
+    <div class="tags--item">
+      <a href="{{ .Name | urlize }}">{{ .Name }}</a>
+      <span>{{ .Count }} {{ cond (gt .Count 1) "posts" "post" }}</span>
+    </div>
+  </li>
+  {{ end }}
+</ul>
+
+{{ end }}

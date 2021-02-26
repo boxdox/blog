@@ -1,0 +1,31 @@
+.responsive-table {
+  overflow-x: auto;
+}
+
+.responsive-table table {
+  --border: 1px solid var(--gray);
+  max-width: 100%;
+  width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+.responsive-table table th,
+.responsive-table table td {
+  padding: 0.5rem;
+  border: var(--border);
+}
+.responsive-table table th {
+  font-family: var(--font-heading);
+  font-size: 1.25rem;
+}
+.responsive-table table tbody td {
+  border-width: 0 1px;
+}
+.responsive-table table tbody tr:nth-child(odd) {
+  background-color: var(--inlineBG);
+}
+.responsive-table table tbody tr:last-child {
+  border-bottom: var(--border);
+}

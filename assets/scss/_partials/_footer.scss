@@ -1,0 +1,76 @@
+.footer--outer {
+  margin-top: 2rem;
+  flex-shrink: 0;
+}
+
+.footer--separator {
+  height: 1px;
+  margin: 0.5rem auto;
+  border: 0;
+  background-color: var(--nav);
+}
+
+.footer--text {
+  margin: 0.5rem 0;
+}
+
+.footer--heart {
+  --size: 1rem;
+  display: inline-block;
+  vertical-align: middle;
+  margin: 0 calc(var(--size) * 0.1);
+  width: var(--size);
+  height: calc(var(--size) * 0.9);
+  animation: heartbeat 2.5s linear infinite alternate;
+  &:before,
+  &:after {
+    content: "";
+    position: absolute;
+    top: 0;
+    width: calc(var(--size) * 0.5);
+    height: calc(var(--size) * 0.8);
+    background: #fc2e5a;
+    border-radius: 50px 50px 0 0;
+  }
+  &:before {
+    left: calc(var(--size) * 0.5);
+    transform: rotate(-45deg);
+    transform-origin: 0 100%;
+  }
+  &:after {
+    left: 0;
+    transform: rotate(45deg);
+    transform-origin: 100% 100%;
+  }
+}
+
+@keyframes heartbeat {
+  0% {
+    transform: scale(1);
+  }
+  5% {
+    transform: scale(1.1);
+  }
+  10% {
+    transform: scale(1);
+  }
+  15% {
+    transform: scale(0.9);
+  }
+  50% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(0.9);
+  }
+}
+
+.footer--links {
+  display: flex;
+  justify-content: flex-end;
+
+  & > a {
+    margin: 0 0.5rem;
+    color: var(--nav);
+  }
+}

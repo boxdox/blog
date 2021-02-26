@@ -1,0 +1,7 @@
+{{ $scss := resources.Get "scss/style.scss" | resources.ExecuteAsTemplate "css/style.scss" . | toCSS }}
+
+{{ if hugo.IsProduction }}
+  {{ $scss = $scss | postCSS | minify | fingerprint }}
+{{ end }}
+
+<link rel="stylesheet" href="{{ $scss.Permalink }}">

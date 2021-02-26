@@ -1,0 +1,14 @@
+{{ define "main" }}
+  <h1>all posts tagged with "{{ .Title | lower }}"</h1>
+
+  <ul class="terms--list">
+    {{ range .Data.Pages }}
+    <li>
+      <div class="terms--item">
+        <a href="{{.RelPermalink}}">{{ .Title }}</a>
+        <span>{{ .Date.Format "January 2, 2006" }}</span>
+      </div>
+    </li>
+    {{ end }}
+  </ul>
+{{ end }}

@@ -1,0 +1,17 @@
+{{ define "main" }}
+<h1>{{ .Title }}</h1>
+<h4>or notes to self</h4>
+
+<div class="til--outer">
+  <input class="til--search" type="search" placeholder="search" />
+  <p class="text--small">search doesn't work :(</p>
+
+  <ul>
+    {{ range .Pages }}
+    <li class="til--item">
+      <a href="{{ .Permalink }}">{{ .Title }}</a>
+    </li>
+    {{ end }}
+  </ul>
+</div>
+{{ end }}

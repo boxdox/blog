@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html prefix="og: http://ogp.me/ns#" lang="{{ .Language }}">
+  <head itemscope itemtype="{{ .Site.BaseURL }}">
+    {{ partial "head/meta" . }}
+    {{ partial "head/favicon" . }}
+    {{ partial "head/stylesheet" . }}
+  </head>
+
+  <body>
+    <div class="message-alert"></div>
+    <div class="colorbar"></div>
+    <div class="wrapper">
+      {{ partial "nav" . }}
+      <main id="main">{{ block "main" . }}{{ end }}</main>
+      {{ partial "footer" . }}
+    </div>
+    {{ partial "scripts.html" . }}
+  </body>
+</html>

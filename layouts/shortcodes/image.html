@@ -1,0 +1,30 @@
+{{ $src := .Page.Resources.GetMatch (printf "*%s*" (.Get "src")) }}
+
+{{ $low := ($src.Resize "20x q10") | images.Filter (images.GaussianBlur 6) }}
+{{ $tiny := ($src.Resize "500x") }}
+{{ $small := ($src.Resize "800x") }}
+{{ $medium := ($src.Resize "1200x") }}
+{{ $large := ($src.Resize "1500x") }}
+
+{{ $img := imageConfig ($src.RelPermalink | printf "content/%s" ) }}
+
+<figure>
+  <picture>
+    <source media="(max-width: 500px)" srcset="{{ $tiny.RelPermalink }}">
+    <source media="(max-width: 800px)" srcset="{{ $small.RelPermalink }}">
+    <source media="(max-width: 1200px)" srcset="{{ $medium.RelPermalink }}">
+    <source media="(max-width: 1500px)" srcset="{{ $large.RelPermalink }}">
+
+    <img
+      src="{{ $src.RelPermalink }}"
+      {{ with .Get "alt" }} alt="{{.}}"{{ end }}
+      {{ with .Get "title" }} title="{{ . }}"{{ end }}
+      style="background: url(data:image/jpeg;base64,{{ $low.Content | base64Encode }}); background-size: cover;"
+      width="{{ $img.Width }}"
+      height="{{ $img.Height }}"
+      loading="lazy"
+      decoding="async"
+    />
+  </picture>
+  {{ with .Inner }}<figcaption>{{ . | markdownify }}</figcaption>{{ end }}
+</figure>

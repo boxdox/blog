@@ -1,0 +1,47 @@
+.about--outer {
+  a {
+    color: var(--accent);
+  }
+
+  h2 {
+    font-size: 2rem;
+    margin-top: 1rem;
+  }
+
+  h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+  }
+
+  p {
+    font-size: 1rem;
+    line-height: 1.75;
+  }
+}
+
+.text__center {
+  text-align: center;
+}
+
+.text__small {
+  font-size: 0.875rem;
+  font-style: italic;
+  text-align: center;
+  margin-top: 0.5rem;
+}
+
+.dot--separator {
+  display: flex;
+  justify-content: center;
+  margin-top: 2.25rem;
+  margin-bottom: 1.75rem;
+
+  span {
+    display: block;
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background-color: var(--accent);
+    margin: 0px 0.75rem;
+  }
+}

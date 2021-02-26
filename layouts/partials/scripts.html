@@ -1,0 +1,13 @@
+{{ $js := resources.Get "js/main.js" }}
+
+{{ $es_opts := dict "format" "esm" }}
+{{ $babel_opts := dict "minified" true "compact" true }}
+{{ $secureJS := $js }}
+
+{{ if hugo.IsProduction }}
+  {{ $secureJS = $secureJS | js.Build $es_opts | babel $babel_opts  | minify | fingerprint }}
+{{ else }}
+  {{ $secureJS = $secureJS | js.Build | fingerprint }}
+{{ end }}
+
+<script src="{{ $secureJS.Permalink }}" integrity="{{ $secureJS.Data.Integrity }}" crossorigin="anonymous" async></script>

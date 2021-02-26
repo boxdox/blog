@@ -1,0 +1,37 @@
+.bloglist--outer, .til--outer {
+  margin-top: 1rem;
+}
+
+.bloglist--year {
+  margin: 1rem 0 -0.5rem;
+}
+
+.bloglist--item {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin: 0.5rem 0;
+
+  a {
+    color: var(--accent);
+    padding-right: 1rem;
+  }
+}
+
+.til--search {
+  width: 100%;
+  margin: 0.5rem 0;
+  height: 2rem;
+  transition: width 400ms ease-in-out;
+  border: 1px solid var(--searchbar-border);
+  color: var(--fg);
+  background-color: transparent;
+  padding: 0.75rem;
+}
+
+.til--item {
+  margin: 0.5rem 0;
+  a {
+    color: var(--accent);
+  }
+}

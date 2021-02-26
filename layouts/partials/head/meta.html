@@ -1,0 +1,38 @@
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+
+{{ $title := cond .IsHome (printf "%s" .Site.Title) (printf "%s &mdash; %s" .Title .Site.Title) }}
+{{ $title = lower (htmlUnescape $title) }}
+
+<title itemprop="name">{{ $title }}</title>
+<meta property="og:title" content="{{ $title }}" />
+<meta name="twitter:title" content="{{ $title }}" />
+<meta itemprop="name" content="{{ $title }}" />
+<meta name="application-name" content="{{ $title }}" />
+<meta property="og:site_name" content="{{ .Site.Title }}" />
+
+{{ $description := cond (isset .Params "description") .Params.description .Site.Params.description }}
+
+<meta name="description" content="{{ $description }}" />
+<meta itemprop="description" content="{{ $description }}" />
+<meta property="og:description" content="{{ $description }}" />
+<meta name="twitter:description" content="{{ $description }}" />
+
+<base href="{{ .Permalink }}" />
+<link rel="canonical" href="{{ .Permalink }}" itemprop="url" />
+<meta name="url" content="{{ .Permalink }}" />
+<meta name="twitter:url" content="{{ .Permalink }}" />
+<meta property="og:url" content="{{ .Permalink }}" />
+
+{{ with .Params.cover }}
+<meta itemprop="image" content="{{ . | absURL }}" />
+<meta property="og:image" content="{{ . | absURL }}" />
+<meta name="twitter:image" content="{{ . | absURL }}" />
+<meta name="twitter:image:src" content="{{ . | absURL }}" />
+{{ else }}
+<meta itemprop="image" content="{{ .Site.Params.ogimage | absURL }}" />
+<meta property="og:image" content="{{ .Site.Params.ogimage | absURL }}" />
+<meta name="twitter:image" content="{{ .Site.Params.ogimage | absURL }}" />
+<meta name="twitter:image:src" content="{{ .Site.Params.ogimage | absURL }}" />
+{{ end }}

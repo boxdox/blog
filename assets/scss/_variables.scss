@@ -1,0 +1,30 @@
+:root {
+  color-scheme: light;
+  --bg: #fff;
+  --fg: #555;
+  --accent: #e92f58;
+  --nav: #333;
+  --gray: #555;
+  --white: #fff;
+  --inlineBG: #ddd;
+  --searchbar-border: var(--nav);
+
+  --font-body: 'Lato', sans-serif;
+  --font-heading: 'Poppins', sans-serif;
+}
+
+.dark-mode {
+  color-scheme: dark;
+  --bg: #121212;
+  --fg: #eee;
+  --accent: #ed5072;
+  --nav: #eee;
+  --gray: #888;
+  --white: #eee;
+  --inlineBG: #252525;
+  --searchbar-border: var(--accent);
+
+  & img {
+    filter: brightness(0.8) contrast(1.2);
+  }
+}

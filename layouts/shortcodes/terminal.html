@@ -1,0 +1,16 @@
+<div class="terminal--outer">
+  <div class="terminal--titlebar">
+    <div class="terminal--buttons">
+      <span class="terminal--button"></span>
+      <span class="terminal--button"></span>
+      <span class="terminal--button"></span>
+    </div>
+    <p class="terminal--title">
+      {{ if .Get "title" }} {{ with .Get "title" }}{{ . }}{{ end }} {{ else }} terminal {{ end }}
+    </p>
+  </div>
+  <div class="terminal--content">{{- highlight (trim .Inner "\n") "shell" "" -}}</div>
+</div>
+{{ with .Get "footer" }}
+<p class="terminal--footer">{{- . | markdownify -}}</p>
+{{ end }}

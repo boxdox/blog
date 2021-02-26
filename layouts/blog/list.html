@@ -1,0 +1,21 @@
+{{ define "main" }}
+<h1>{{ .Title }}</h1>
+
+<h4>updates seldomly</h4>
+
+<div class="bloglist--outer">
+  {{ range .Pages.GroupByDate "2006" }}
+  <h3 class="bloglist--year">{{ .Key }}</h3>
+  <ul>
+    {{ range .Pages }}
+    <li>
+      <div class="bloglist--item">
+        <a href="{{ .Permalink }}">{{ .Title }}</a>
+        <span>{{ .Date.Format "Jan 02" }}</span>
+      </div>
+    </li>
+    {{ end }}
+  </ul>
+  {{ end }}
+</div>
+{{ end }}

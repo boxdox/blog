@@ -1,0 +1,27 @@
+{{ define "main" }}
+  <header class="post--header">
+    <h1 class="post--title">{{ .Title }}</h1>
+    <h4 class="post--subtitle">
+      <span>{{ .Date.Format "Sunday, January 2 2006" }}</span>
+      <span>
+        {{ printf ("%d min%s read") .ReadingTime (cond (gt .ReadingTime 1) "s" "" ) }}
+      </span>
+      {{ with .Params.tags }}
+        <ul class="post--tags">
+          {{ range . }}
+            <li><a class="post--tag" href="{{ "tags" | absURL }}/{{ . | urlize }}">{{ . }}</a></li>
+          {{ end }}
+        </ul>
+      {{ end }}
+    </h4>
+    {{ with .Params.cover }}
+      {{ $img := imageConfig (printf "content%s%s" $.RelPermalink . | relURL) }}
+      <img class="post--cover" src="{{ . }}" alt="{{ $.Title }}" title="Cover Image" width="{{ $img.Width }}" height="{{ $img.Height }}" />
+    {{ end }}
+  </header>
+  <article class="post--body">
+    {{ .Content }}
+    {{ partial "share" . }}
+  </article>
+{{ end }}
+

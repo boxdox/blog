@@ -1,0 +1,53 @@
+.header--outer {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin-bottom: 2rem;
+}
+
+.header--top, .header--bottom {
+  display: flex;
+  align-items: center;
+}
+
+.header--top {
+  justify-content: space-between;
+}
+
+.header--logo {
+  font-family: 'Poppins';
+  font-size: 2rem;
+  text-decoration: none;
+  color: var(--accent);
+}
+
+.header--switch-theme {
+  --size: 1.5rem;
+  width: var(--size);
+  height: var(--size);
+  border: none;
+  background: transparent;
+  padding: 0;
+  justify-self: flex-end;
+  cursor: pointer;
+}
+
+.header--bottom {
+  justify-content: flex-end;
+}
+
+.nav--link {
+    align-self: center;
+    min-width: 6rem;
+    margin-left: 2rem;
+    text-align: right;
+    color: var(--nav);
+    text-decoration: none;
+    transition: all 0.2s ease-in;
+    &:hover {
+      color: var(--gray);
+    }
+    &.active {
+      text-decoration: line-through;
+    }
+}
