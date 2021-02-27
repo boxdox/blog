@@ -1,19 +1,19 @@
-title = "boxdox's blog"
 baseURL = "https://boxdox.dev"
-languageCode = "en-us"
 disableHugoGeneratorInject = true
+languageCode = "en-us"
+title = "boxdox's blog"
 
 [params]
-    author = "boxdox"
-    description = "personal space for showcasing work of @boxdox"
-    themeColor = "#ed5072"
-    ogimage = "/images/og.jpg"
+author = "boxdox"
+description = "personal space for showcasing work of @boxdox"
+ogimage = "/images/og.jpg"
+themeColor = "#ed5072"
 
 [markup]
-  [markup.highlight]
-    codeFences = true
-    style = "dracula"
-    tabWidth = 2
+[markup.highlight]
+codeFences = true
+style = "dracula"
+tabWidth = 2
 
 [taxonomies]
-  tag = "tags"
+tag = "tags"

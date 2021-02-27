@@ -8,5 +8,115 @@
   </head>
   <body>
     <script src="https://unpkg.com/netlify-cms@^2.0.0/dist/netlify-cms.js"></script>
+    <script>
+      CMS.registerEditorComponent({
+        id: 'responsive-image',
+        label: 'Responsive Image',
+        fields: [
+          {
+            name: 'src',
+            label: 'Source',
+            widget: 'image',
+            default: '',
+          },
+          {
+            name: 'caption',
+            label: 'Caption',
+            widget: 'string',
+            default: '',
+          },
+          {
+            name: 'alt',
+            label: 'Alt Text',
+            widget: 'string',
+            default: '',
+          },
+          {
+            name: 'title',
+            label: 'Title Text',
+            widget: 'string',
+            default: '',
+          },
+        ],
+        toBlock: function toBlock(obj) {
+          var withoutCaption =
+            '{{< image src="' + obj.src + '" alt="' + obj.alt + '" title="' + obj.title + '" >}}'
+          return obj.caption ? '' + withoutCaption + obj.caption + '{{</ image >}}' : withoutCaption
+        },
+        toPreview: function toPreview(obj) {
+          return (
+            '<figure><img src="' +
+            obj.src +
+            '" alt="' +
+            obj.alt +
+            '"><figcaption>' +
+            obj.caption +
+            '</figcaption></figure>'
+          )
+        },
+      })
+      CMS.registerEditorComponent({
+        id: 'youtube',
+        label: 'Youtube',
+        fields: [
+          {
+            name: 'id',
+            label: 'Video Id',
+            widget: 'string',
+            default: '',
+          },
+          {
+            name: 'title',
+            label: 'Title Text',
+            widget: 'string',
+            default: '',
+          },
+        ],
+        toBlock: function toBlock(obj) {
+          return '{{< yt id="' + obj.id + '" title="' + obj.title + '" >}}'
+        },
+        toPreview: function toPreview(obj) {
+          return '<img src="' + obj.id + '" />'
+        },
+      })
+      CMS.registerEditorComponent({
+        id: 'terminal',
+        label: 'Terminal',
+        fields: [
+          {
+            name: 'title',
+            label: 'Title Text',
+            widget: 'string',
+            default: '',
+          },
+          {
+            name: 'footer',
+            label: 'Footer Caption',
+            widget: 'string',
+            default: '',
+          },
+          {
+            name: 'text',
+            label: 'Text',
+            widget: 'text',
+            default: '',
+          },
+        ],
+        toBlock: function toBlock(obj) {
+          return (
+            '{{< terminal title="' +
+            obj.title +
+            '" footer="' +
+            obj.footer +
+            '" >}}' +
+            obj.text +
+            '{{</ terminal >}}\n'
+          )
+        },
+        toPreview: function toPreview(obj) {
+          return '<pre><code>' + obj.text + '</code></pre>'
+        },
+      })
+    </script>
   </body>
 </html>

@@ -1,18 +1,57 @@
 backend:
   name: git-gateway
   branch: master
+  squash_merges: true
+site_url: https://boxdox.dev
+display_url: https://boxdox.dev
 media_folder: static/img
 public_folder: /img
 collections:
-  - name: "blog"
-    label: "Blog"
-    folder: "content/blog"
+  - name: 'pages'
+    label: 'Pages'
+    files:
+      - name: 'home'
+        label: 'Home'
+        file: 'content/_index.md'
+        fields:
+          - { label: 'Body', name: 'body', widget: 'markdown' }
+
+      - name: 'about'
+        label: 'About'
+        file: 'content/about.html'
+        extension: "html"
+        fields:
+          - { label: 'Body', name: 'body', widget: 'text' }
+
+  - name: 'blog'
+    label: 'Blog'
+    folder: 'content/blog'
+    path: 'content/blog/{{slug}}/index.md'
+    media_folder: ''
+    public_folder: ''
     create: true
-    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
-    editor:
-      preview: false
+    slug: '{{slug}}'
     fields:
-      - { label: "Title", name: "title", widget: "string" }
-      - { label: "Publish Date", name: "date", widget: "datetime" }
-      - { label: "Description", name: "description", widget: "string" }
-      - { label: "Body", name: "body", widget: "markdown" }
+      - { label: 'Title', name: 'title', widget: 'string' }
+      - { label: 'Description', name: 'description', widget: 'text' }
+      - { label: 'Publish Date', name: 'date', widget: 'datetime' }
+      - { label: 'Cover', name: 'cover', widget: 'image' }
+      - { label: 'Tags', name: 'tags', widget: 'list' }
+      - { label: 'Language', name: 'language', widget: 'hidden', default: 'en' }
+      - { label: 'Body', name: 'body', widget: 'markdown' }
+
+  - name: 'til'
+    label: 'TIL'
+    folder: 'content/til'
+    path: 'content/til/{{slug}}/index.md'
+    media_folder: ''
+    public_folder: ''
+    create: true
+    slug: '{{slug}}'
+    fields:
+      - { label: 'Title', name: 'title', widget: 'string' }
+      - { label: 'Description', name: 'description', widget: 'text' }
+      - { label: 'Publish Date', name: 'date', widget: 'datetime' }
+      - { label: 'Tags', name: 'tags', widget: 'list' }
+      - { label: 'Language', name: 'language', widget: 'hidden', default: 'en' }
+      - { label: 'Body', name: 'body', widget: 'markdown' }
