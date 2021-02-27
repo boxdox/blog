@@ -15,4 +15,3 @@ publish = "public"
 [context.production.environment]
 HUGO_ENV = "production"
 HUGO_VERSION = "0.81.0"
-NODE_ENV = "production"

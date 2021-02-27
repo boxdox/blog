@@ -117,6 +117,24 @@
           return '<pre><code>' + obj.text + '</code></pre>'
         },
       })
+      CMS.registerEditorComponent({
+        id: 'table',
+        label: 'Table',
+        fields: [
+          {
+            name: 'text',
+            label: 'Text',
+            widget: 'text',
+            default: '',
+          },
+        ],
+        toBlock: function toBlock(obj) {
+          return '{{< table >}}' + obj.text + '{{</ table >}}\n'
+        },
+        toPreview: function toPreview(obj) {
+          return '<pre><code>' + obj.text + '</code></pre>'
+        },
+      })
     </script>
   </body>
 </html>

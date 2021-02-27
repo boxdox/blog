@@ -1,11 +1,12 @@
 backend:
   name: git-gateway
-  branch: master
+  branch: main
   squash_merges: true
 site_url: https://boxdox.dev
 display_url: https://boxdox.dev
 media_folder: static/img
-public_folder: /img
+show_preview_links: true
+
 collections:
   - name: 'pages'
     label: 'Pages'
@@ -19,18 +20,22 @@ collections:
       - name: 'about'
         label: 'About'
         file: 'content/about.html'
-        extension: "html"
+        extension: 'html'
         fields:
           - { label: 'Body', name: 'body', widget: 'text' }
 
   - name: 'blog'
     label: 'Blog'
     folder: 'content/blog'
-    path: 'content/blog/{{slug}}/index.md'
+    path: '{{slug}}'
+    preview_path: 'blog/{{slug}}'
+    extension: 'md'
+    format: yaml-frontmatter
     media_folder: ''
     public_folder: ''
     create: true
     slug: '{{slug}}'
+
     fields:
       - { label: 'Title', name: 'title', widget: 'string' }
       - { label: 'Description', name: 'description', widget: 'text' }
@@ -43,7 +48,8 @@ collections:
   - name: 'til'
     label: 'TIL'
     folder: 'content/til'
-    path: 'content/til/{{slug}}/index.md'
+    path: '{{slug}}'
+    preview_path: 'til/{{slug}}'
     media_folder: ''
     public_folder: ''
     create: true
