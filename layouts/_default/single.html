@@ -9,7 +9,7 @@
       {{ with .Params.tags }}
         <ul class="post--tags">
           {{ range . }}
-            <li><a class="post--tag" href="{{ "tags" | absURL }}/{{ . | urlize }}">{{ . }}</a></li>
+            <li><a class="post--tag" href="{{ "tags" | relURL }}/{{ . | urlize }}">{{ . }}</a></li>
           {{ end }}
         </ul>
       {{ end }}

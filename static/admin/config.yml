@@ -2,6 +2,7 @@ backend:
   name: git-gateway
   branch: main
   squash_merges: true
+
 site_url: https://boxdox.dev
 display_url: https://boxdox.dev
 media_folder: static/img
@@ -27,7 +28,7 @@ collections:
   - name: 'blog'
     label: 'Blog'
     folder: 'content/blog'
-    path: '{{slug}}'
+    path: '{{slug}}/index'
     preview_path: 'blog/{{slug}}'
     extension: 'md'
     format: yaml-frontmatter
@@ -38,17 +39,18 @@ collections:
 
     fields:
       - { label: 'Title', name: 'title', widget: 'string' }
-      - { label: 'Description', name: 'description', widget: 'text' }
+      - { label: 'Description', name: 'description', widget: 'text', required: false }
       - { label: 'Publish Date', name: 'date', widget: 'datetime' }
-      - { label: 'Cover', name: 'cover', widget: 'image' }
-      - { label: 'Tags', name: 'tags', widget: 'list' }
+      - { label: 'Cover', name: 'cover', widget: 'image', required: false }
+      - { label: 'Tags', name: 'tags', widget: 'list', required: false }
       - { label: 'Language', name: 'language', widget: 'hidden', default: 'en' }
       - { label: 'Body', name: 'body', widget: 'markdown' }
 
   - name: 'til'
     label: 'TIL'
     folder: 'content/til'
-    path: '{{slug}}'
+    path: '{{slug}}/index'
+    extension: 'md'
     preview_path: 'til/{{slug}}'
     media_folder: ''
     public_folder: ''
@@ -56,8 +58,8 @@ collections:
     slug: '{{slug}}'
     fields:
       - { label: 'Title', name: 'title', widget: 'string' }
-      - { label: 'Description', name: 'description', widget: 'text' }
+      - { label: 'Description', name: 'description', widget: 'text', required: false }
       - { label: 'Publish Date', name: 'date', widget: 'datetime' }
-      - { label: 'Tags', name: 'tags', widget: 'list' }
+      - { label: 'Tags', name: 'tags', widget: 'list', required: false }
       - { label: 'Language', name: 'language', widget: 'hidden', default: 'en' }
       - { label: 'Body', name: 'body', widget: 'markdown' }

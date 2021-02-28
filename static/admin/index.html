@@ -108,9 +108,14 @@
             obj.title +
             '" footer="' +
             obj.footer +
-            '" >}}' +
-            obj.text +
-            '{{</ terminal >}}\n'
+            '" >}}\n' +
+            obj.text
+              .split('\n')
+              .map(function (str) {
+                return str.trim()
+              })
+              .join('\n') +
+            '\n{{</ terminal >}}'
           )
         },
         toPreview: function toPreview(obj) {
@@ -129,7 +134,7 @@
           },
         ],
         toBlock: function toBlock(obj) {
-          return '{{< table >}}' + obj.text + '{{</ table >}}\n'
+          return '{{< table >}}\n' + obj.text + '\n{{</ table >}}'
         },
         toPreview: function toPreview(obj) {
           return '<pre><code>' + obj.text + '</code></pre>'
