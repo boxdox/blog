@@ -3,6 +3,6 @@
 node_modules
 .cache
 public
-resources/_gen/assets
+resources
 *.map
 hugo_stats.json

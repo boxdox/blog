@@ -12,7 +12,8 @@
 <meta name="application-name" content="{{ $title }}" />
 <meta property="og:site_name" content="{{ .Site.Title }}" />
 
-{{ $description := cond (isset .Params "description") .Params.description .Site.Params.description }}
+{{ $description := cond (isset .Params "description") .Params.description .Site.Params.description
+}}
 
 <meta name="description" content="{{ $description }}" />
 <meta itemprop="description" content="{{ $description }}" />
@@ -26,10 +27,11 @@
 <meta property="og:url" content="{{ .Permalink }}" />
 
 {{ with .Params.cover }}
-<meta itemprop="image" content="{{ . | absURL }}" />
-<meta property="og:image" content="{{ . | absURL }}" />
-<meta name="twitter:image" content="{{ . | absURL }}" />
-<meta name="twitter:image:src" content="{{ . | absURL }}" />
+{{ $coverImg := printf "%s%s" $.Permalink . }}
+<meta itemprop="image" content="{{ $coverImg }}" />
+<meta property="og:image" content="{{ $coverImg }}" />
+<meta name="twitter:image" content="{{ $coverImg }}" />
+<meta name="twitter:image:src" content="{{ $coverImg }}" />
 {{ else }}
 <meta itemprop="image" content="{{ .Site.Params.ogimage | absURL }}" />
 <meta property="og:image" content="{{ .Site.Params.ogimage | absURL }}" />

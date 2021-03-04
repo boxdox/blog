@@ -1,7 +1,8 @@
 ---
 title: Sorting GraphQL Groups In Gatsby
+description: grouping posts by date and then sorting them in descending order based on their date in gatsby
 date: 2020-02-03
-cover: ./cover.jpg
+cover: cover.jpg
 language: en
 tags:
   - graphql

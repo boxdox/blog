@@ -5,7 +5,7 @@ title = "boxdox's blog"
 
 [params]
 author = "boxdox"
-description = "personal space for showcasing work of @boxdox"
+description = "personal space of @boxdox"
 ogimage = "/images/og.jpg"
 themeColor = "#ed5072"
 

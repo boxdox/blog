@@ -1,5 +1,6 @@
 ---
 title: Every developer should have these git aliases!
+description: Git aliases increase developer's productivity. Here are few of my favorites!
 date: 2020-04-12
 language: en
 tags:
