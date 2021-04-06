@@ -102,7 +102,6 @@
     loadJs.src = 'https://unpkg.com/@webcomponents/webcomponentsjs@2.5.0/webcomponents-loader.js'
     loadJs.setAttribute('defer', '')
     loadJs.onload = function () {
-      console.log('library loaded')
       loadLibrary()
     }
     document.head.appendChild(loadJs)

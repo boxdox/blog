@@ -15,13 +15,39 @@
       {{ end }}
     </h4>
     {{ with .Params.cover }}
-      {{ $img := imageConfig (printf "content%s%s" $.RelPermalink . | relURL) }}
-      <img class="post--cover" src="{{ . }}" alt="{{ $.Title }}" title="Cover Image" width="{{ $img.Width }}" height="{{ $img.Height }}" />
+      {{ with $.Resources.GetMatch . }}
+        {{ $low := .Resize "20x q10" | images.Filter (images.GaussianBlur 6) }}
+        {{ $tiny := .Resize "500x" }}
+        {{ $small := .Resize "800x" }}
+        {{ $medium := .Resize "1200x" }}
+        {{ $large := .Resize "1500x" }}
+        {{ $img := imageConfig (printf "content%s%s" $.RelPermalink . | relURL) }}
+        <figure class="post--cover">
+          <picture>
+            <source media="(max-width: 500px)" srcset="{{ $tiny.RelPermalink }}">
+            <source media="(max-width: 800px)" srcset="{{ $small.RelPermalink }}">
+            <source media="(max-width: 1200px)" srcset="{{ $medium.RelPermalink }}">
+            <source media="(max-width: 1500px)" srcset="{{ $large.RelPermalink }}">
+
+            <img
+              src="{{ .RelPermalink }}"
+              alt="{{ $.Title }}"
+              title="Cover Image"
+              style="background: url(data:image/jpeg;base64,{{ $low.Content | base64Encode }}); background-size: cover;"
+              width="{{ $img.Width }}"
+              height="{{ $img.Height }}"
+              loading="lazy"
+              decoding="async"
+            />
+          </picture>
+        </figure>
+      {{ end }}
     {{ end }}
   </header>
   <article class="post--body">
     {{ .Content }}
     {{ partial "share" . }}
   </article>
+  <span class="back-to-top"><button aria-label="Scroll to Top" tabindex="-1">☝️</button></span>
 {{ end }}
 
