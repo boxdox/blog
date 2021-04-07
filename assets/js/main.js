@@ -58,7 +58,7 @@ if (backToTopButton && mainHeight / innerHeight > 3) {
 }
 
 document
-  .querySelectorAll('article > img, article > figure > picture > img, article > p > img')
+  .querySelectorAll('article > img, article > figure > picture > img, article > p > img, figure.post--cover img')
   .forEach(image => {
     image.addEventListener('click', () => {
       showLightbox({ imgUrl: image.src, altText: image.alt })
