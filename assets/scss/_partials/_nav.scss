@@ -39,9 +39,10 @@
 
 .nav--link {
     align-self: center;
-    min-width: 6rem;
-    margin-left: 2rem;
-    text-align: right;
+    min-width: 3rem;
+    text-align: center;
+    margin-left: 1rem;
+
     color: var(--nav);
     text-decoration: none;
     transition: all 0.2s ease-in;
@@ -50,5 +51,11 @@
     }
     &.active {
       text-decoration: line-through;
+    }
+
+    @media screen and (min-width: 360px) {
+      min-width: 6rem;
+      margin-left: 1.5rem;
+      text-align: right;
     }
 }

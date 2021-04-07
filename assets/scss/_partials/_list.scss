@@ -8,13 +8,16 @@
 
 .bloglist--item {
   display: flex;
-  flex-wrap: wrap;
   justify-content: space-between;
   margin: 0.75rem 0;
 
   a {
     color: var(--accent);
     padding-right: 1rem;
+  }
+
+  span {
+    min-width: 3rem;
   }
 }
 

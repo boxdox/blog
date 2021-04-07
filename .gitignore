@@ -6,3 +6,4 @@ public
 resources
 *.map
 hugo_stats.json
+.vscode

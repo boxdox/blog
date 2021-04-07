@@ -1658,6 +1658,11 @@ inherits@2, inherits@^2.0.3, inherits@~2.0.3:
   resolved "https://registry.yarnpkg.com/inherits/-/inherits-2.0.4.tgz#0fa2c64f932917c3433a0ded55363aae37416b7c"
   integrity sha512-k/vGaX4/Yla3WzyMCvTQOXYeIHvqOKtnqBduzTHpzpQZzAskKMhZ2K+EnBiSM9zGSoIFeMpXKxa4dYeZIQqewQ==
 
+instant.page@^5.1.0:
+  version "5.1.0"
+  resolved "https://registry.yarnpkg.com/instant.page/-/instant.page-5.1.0.tgz#ee0b5c341eda6c16d63def214bb6126701d7154d"
+  integrity sha512-7tz0vkrbj6rN08+C56UDTs1Z71ATPNjMv2eCFaYnIIn3jlkEF6HZCaUtsigjaN2hVaYiuu06vu1usDMnu+OEFg==
+
 is-accessor-descriptor@^0.1.6:
   version "0.1.6"
   resolved "https://registry.yarnpkg.com/is-accessor-descriptor/-/is-accessor-descriptor-0.1.6.tgz#a9e12cb3ae8d876727eeef3843f8a0897b5c98d6"

@@ -10,4 +10,4 @@
   {{ $secureJS = $secureJS | js.Build | fingerprint }}
 {{ end }}
 
-<script src="{{ $secureJS.Permalink }}" integrity="{{ $secureJS.Data.Integrity }}" crossorigin="anonymous" async></script>
+<script src="{{ $secureJS.Permalink }}" integrity="{{ $secureJS.Data.Integrity }}" crossorigin="anonymous" defer></script>

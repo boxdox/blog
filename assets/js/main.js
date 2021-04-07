@@ -1,3 +1,5 @@
+import 'instant.page'
+
 import { autoSetTheme, toggleTheme } from './theme'
 import { shareButton } from './share'
 import { showLightbox } from './lightbox'
