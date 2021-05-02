@@ -1,7 +1,7 @@
 {{ define "main" }}
   <header class="post--header">
     <h1 class="post--title">{{ .Title }}</h1>
-    <h4 class="post--subtitle">
+    <div class="post--subtitle">
       <span>{{ .Date.Format "Sunday, January 2 2006" }}</span>
       <span>
         {{ printf ("%d min%s read") .ReadingTime (cond (gt .ReadingTime 1) "s" "" ) }}
@@ -13,7 +13,7 @@
           {{ end }}
         </ul>
       {{ end }}
-    </h4>
+    </div>
     {{ with .Params.cover }}
       {{ with $.Resources.GetMatch . }}
         {{ $low := .Resize "20x q10" | images.Filter (images.GaussianBlur 6) }}
@@ -48,6 +48,6 @@
     {{ .Content }}
     {{ partial "share" . }}
   </article>
-  <span class="back-to-top"><button aria-label="Scroll to Top" tabindex="-1">☝️</button></span>
+  {{ partial "back-to-top" . }}
 {{ end }}
 

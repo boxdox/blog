@@ -1,11 +1,10 @@
 .footer--outer {
-  margin-top: 2rem;
   flex-shrink: 0;
 }
 
 .footer--separator {
   height: 1px;
-  margin: 0.5rem auto;
+  margin: 0 auto 0.5rem;
   border: 0;
   background-color: var(--nav);
 }
@@ -24,7 +23,7 @@
   animation: heartbeat 2.5s linear infinite alternate;
   &:before,
   &:after {
-    content: "";
+    content: '';
     position: absolute;
     top: 0;
     width: calc(var(--size) * 0.5);

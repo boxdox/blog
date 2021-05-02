@@ -1,19 +1,22 @@
 const CLASS = 'dark-mode'
 const KEY = 'theme'
 const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)').matches
-const btn = document.querySelector('#toggle-color-scheme')
+const lightIcon = document.querySelector('svg.light-icon')
+const darkIcon = document.querySelector('svg.dark-icon')
 
-const setTheme = ({ dark = false, store = true }) => {
+const setTheme = ({ dark = false }) => {
   if (dark) {
     // set to dark
     document.body.classList.add(CLASS)
-    btn.innerHTML = '🌞'
+    lightIcon.classList.remove('hide')
+    darkIcon.classList.add('hide')
   } else {
     // set to light
     document.body.classList.remove(CLASS)
-    btn.innerHTML = '🌚'
+    lightIcon.classList.add('hide')
+    darkIcon.classList.remove('hide')
   }
-  if (store) localStorage.setItem(KEY, dark ? 'dark' : 'light')
+  localStorage.setItem(KEY, dark ? 'dark' : 'light')
 }
 
 export const autoSetTheme = () => {
@@ -21,6 +24,7 @@ export const autoSetTheme = () => {
   if (currentTheme === 'light') setTheme({ dark: false })
   else if (currentTheme === 'dark') setTheme({ dark: true })
   else if (!currentTheme && prefersDarkScheme) setTheme({ dark: true })
+  else setTheme({ dark: false })
 }
 
 export const toggleTheme = () => {

@@ -5,7 +5,8 @@
   margin-bottom: 2rem;
 }
 
-.header--top, .header--bottom {
+.header--top,
+.header--bottom {
   display: flex;
   align-items: center;
 }
@@ -30,6 +31,16 @@
   padding: 0;
   justify-self: flex-end;
   cursor: pointer;
+
+  & > svg {
+    width: var(--size);
+    height: var(--size);
+    fill: var(--nav);
+    &.hide {
+      display: none;
+      visibility: hidden;
+    }
+  }
 }
 
 .header--bottom {
@@ -38,24 +49,24 @@
 }
 
 .nav--link {
-    align-self: center;
-    min-width: 3rem;
-    text-align: center;
-    margin-left: 1rem;
+  align-self: center;
+  min-width: 3rem;
+  text-align: center;
+  margin-left: 1rem;
 
-    color: var(--nav);
-    text-decoration: none;
-    transition: all 0.2s ease-in;
-    &:hover {
-      color: var(--gray);
-    }
-    &.active {
-      text-decoration: line-through;
-    }
+  color: var(--nav);
+  text-decoration: none;
+  transition: all 0.2s ease-in;
+  &:hover {
+    color: var(--gray);
+  }
+  &.active {
+    text-decoration: line-through;
+  }
 
-    @media screen and (min-width: 360px) {
-      min-width: 6rem;
-      margin-left: 1.5rem;
-      text-align: right;
-    }
+  @media screen and (min-width: 360px) {
+    min-width: 6rem;
+    margin-left: 1.5rem;
+    text-align: right;
+  }
 }
